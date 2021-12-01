@@ -58,12 +58,6 @@ public class AvengerController {
             ArrayList<AvengerInterface> avengerArray = (ArrayList<AvengerInterface>) objectIn.readObject();
             System.out.println("Deserialization completed");
 
-//            for (int i = 0; i < avengerArray.size(); i++) {
-//                newAvengerI =
-//                res += "Avenger Name: " + newAvengerI.getName() + ", Avenger Power : " + newAvengerI.getSuperPower() + "\n";
-//            }
-//            objectIn.close();
-
             for (AvengerInterface avenger : avengerArray){
                 res += "\nAvenger Name: " + avenger.getName() + ", Avenger Power : " + avenger.getSuperPower() + "\nAge: " + avenger.getAge() + ", Nationality : " + avenger.getNationality() + "\n";
             }

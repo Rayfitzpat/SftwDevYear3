@@ -9,7 +9,9 @@ import java.util.ArrayList;
 public interface AvengerListInterface extends Remote{
 
 
-    public void addToList(Avenger h) throws RemoteException;
+    public void add(AvengerInterface a) throws RemoteException;
+
+    void delete(String name) throws RemoteException;
 
 //    void deleteAvenger(String name) throws RemoteException;
 

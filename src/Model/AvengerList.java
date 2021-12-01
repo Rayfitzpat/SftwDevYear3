@@ -19,11 +19,29 @@ public class AvengerList extends UnicastRemoteObject implements AvengerListInter
 
     }
 
-    @Override
-    public void addToList(Avenger a) throws RemoteException {
-        this.avengers.add(a);
 
+    public void add(Avenger a) throws RemoteException {
+
+                this.avengers.add(a);
+            }
+
+
+    @Override
+    public void add(AvengerInterface a) throws RemoteException {
+        this.avengers.add(a);
     }
+
+    @Override
+    public void delete(String name) throws RemoteException {
+        for (int i = 0; i < this.avengers.size(); ++i) {
+            System.out.println("delete middle");
+            if (Objects.equals(name, ((AvengerInterface) this.avengers.get(i)).getName())) {
+                System.out.println("delete inside");
+                this.avengers.remove(i);
+            }
+        }
+    }
+
 
     @Override
     public ArrayList<AvengerInterface> getList() throws RemoteException {

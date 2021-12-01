@@ -62,12 +62,13 @@ public class AvengerServer {
             System.out.println("Hulk created...");
 
 
-            al.addToList(ironMan);
-            al.addToList(thor);
-            al.addToList(hulk);
-            al.addToList(blackWidow);
-            al.addToList(hawkeye);
-            al.addToList(captainAmerica);
+            al.add(ironMan);
+            al.add(thor);
+            al.add(hulk);
+            al.add(blackWidow);
+            al.add(hawkeye);
+            al.add(captainAmerica);
+
 
             Naming.rebind("listOfAvengers", al);
 

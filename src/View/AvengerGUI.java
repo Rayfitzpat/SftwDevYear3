@@ -1,7 +1,9 @@
 package View;
 
 import Controller.AvengerController;
+import Interface.AvengerInterface;
 import Interface.AvengerListInterface;
+import Model.Avenger;
 
 import javax.swing.*;
 import java.awt.*;
@@ -116,21 +118,28 @@ AvengerController avengerController = new AvengerController();
     }
 
     public void actionPerformed(ActionEvent e) {
+
+        //SERIALIZE
         if (e.getSource().equals(b6)) {
             System.out.println("Ser");
             avengerController.Serialize();
 
         }
+
+        //DESER
         if (e.getSource().equals(b7)) {
             System.out.println("deser");
             avengerController.Deserialize();
 
         }
+
+        // SHOW LIST
         if (e.getSource().equals(b1)){
             t1.setText(null);
             t1.append(avengerController.Deserialize());
         }
 
+        // EDIT
         if (e.getSource().equals(b5)){
             System.out.println("Edit method called");
             try {
@@ -145,17 +154,35 @@ AvengerController avengerController = new AvengerController();
             }
         }
 
-//        if (e.getSource().equals(b4)){
-//            System.out.println("Delete method called");
-//            try {
-//                String avengerName = tf1.getText();
-//
-////                ali.deleteAvenger(avengerName);
-//            } catch (RemoteException ex) {
-//                ex.printStackTrace();
-//            }
-//        }
+        // DELETE
+        if (e.getSource().equals(b4)){
+            System.out.println("Delete method called");
+            try {
+                String avengerName = tf1.getText();
 
+                ali.delete(avengerName);
+            } catch (RemoteException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        // ADD NEW
+        if (e.getSource().equals(b3)){
+            System.out.println("Add New method called");
+            try {
+                String avengerName = tf1.getText();
+                String superPower = tf2.getText();
+                int age = Integer.parseInt(tf3.getText());
+                String nationality = tf4.getText();
+
+                AvengerInterface newAvenger = new Avenger(avengerName, superPower, age, nationality);
+                ali.add(newAvenger);
+            } catch (RemoteException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+// HIDE LIST
         if (e.getSource().equals(b2)){ //Show current deserialized array
             t1.setText(null);
         }
