@@ -4,7 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface AvengerInterface extends Remote {
-
+// Getters and setters from the Avenger Class
     String getName() throws RemoteException;
     int getAge() throws RemoteException;
     String getSuperPower() throws RemoteException;

@@ -14,10 +14,10 @@ import java.rmi.Naming;
 
 public class AvengerClient {
     public static void main(String[] args) throws MalformedURLException, NotBoundException, RemoteException {
-        // TODO Auto-generated method stub
         String url="rmi:///"; //no IP address, this is local.
         System.out.println("Client Started");
 
+        // Connects to the server, gets the list details from AvengerInterface
         try {
             AvengerListInterface avenger= (AvengerListInterface) Naming.lookup(url+"listOfAvengers");
             ArrayList<AvengerInterface> avengerList = avenger.getList();

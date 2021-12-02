@@ -8,6 +8,9 @@ import java.util.ArrayList;
 
 public interface AvengerListInterface extends Remote{
 
+    // Methods that are called from the GUi
+    // These are created in AvengerList
+
     void add(AvengerInterface a) throws RemoteException;
 
     void add(String name, String superPower, int age, String nationality) throws RemoteException;

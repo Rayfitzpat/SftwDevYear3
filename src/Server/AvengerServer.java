@@ -8,13 +8,13 @@ import java.rmi.Naming;
 public class AvengerServer {
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
 
         System.out.println("Server has started.....");
 
         try {
-            AvengerList al = new AvengerList();
+            AvengerList al = new AvengerList();  // creates new Avenger list called al
 
+            // creates new Avengers
             Avenger ironMan = new Avenger("Tony Stark",  "Money", 46, "American");
             System.out.println("IronMan created....");
             Avenger thor = new Avenger("Thor",  "God of Thunder", 3474, "Asgardian");
@@ -28,6 +28,7 @@ public class AvengerServer {
             Avenger captainAmerica  = new Avenger("Steve Rogers",  "Strength", 103, "American");
             System.out.println("Hulk created...");
 
+            // adds created Avengers to the Avenger List
             al.add(ironMan);
             al.add(thor);
             al.add(hulk);

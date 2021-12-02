@@ -1,9 +1,7 @@
 package View;
 
 import Controller.AvengerController;
-import Interface.AvengerInterface;
 import Interface.AvengerListInterface;
-import Model.Avenger;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,8 +14,10 @@ import java.rmi.RemoteException;
 
 public class AvengerGUI extends JFrame implements ActionListener{
 
+    // New Controller
 AvengerController avengerController = new AvengerController();
 
+// Creating the GUI elements
     public JButton b1 = new JButton("Show Avengers Array");
     public JButton b2 = new JButton("Hide the Array");
     public JButton b3 = new JButton("Add Avenger");
@@ -32,11 +32,14 @@ AvengerController avengerController = new AvengerController();
    public JTextField tf1 = new JTextField("Name Here");
    public JTextField tf3 = new JTextField("Age Here");
    public JTextField tf4 = new JTextField("Nationality");
+
+   // get info from the server
     String url="rmi:///";
     AvengerListInterface ali= (AvengerListInterface) Naming.lookup(url+"listOfAvengers");
 
     public AvengerGUI() throws RemoteException, MalformedURLException, NotBoundException {
 
+        // Action listeners for all buttons
     b1.addActionListener(this);
     b2.addActionListener(this);
     b3.addActionListener(this);
@@ -44,7 +47,7 @@ AvengerController avengerController = new AvengerController();
     b5.addActionListener(this);
     b6.addActionListener(this);
     b7.addActionListener(this);
-
+// Gridbag layout elements
         GridBagLayout gridbag = new GridBagLayout();
         GridBagConstraints constraints = new GridBagConstraints();
         getContentPane().setLayout(gridbag);

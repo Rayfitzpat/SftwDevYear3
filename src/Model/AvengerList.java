@@ -12,6 +12,7 @@ import java.util.Objects;
 
 public class AvengerList extends UnicastRemoteObject implements AvengerListInterface, Serializable {
 
+    // Creates an array list called avengers from Avenger Interface
     private ArrayList<AvengerInterface> avengers = new ArrayList();
 
 
@@ -19,16 +20,19 @@ public class AvengerList extends UnicastRemoteObject implements AvengerListInter
 
     }
 
+    // add method using Avenger object - not used
     public void add(Avenger a) throws RemoteException {
 
                 this.avengers.add(a);
             }
 
+            // Add method not used
     @Override
     public void add(AvengerInterface a) throws RemoteException {
         this.avengers.add(a);
     }
 
+    // Delete Method
     @Override
     public void delete(String name) throws RemoteException {
         for (int i = 0; i < this.avengers.size(); ++i) {
@@ -40,25 +44,33 @@ public class AvengerList extends UnicastRemoteObject implements AvengerListInter
         }
     }
 
+
+    // Get List
     @Override
     public ArrayList<AvengerInterface> getList() throws RemoteException {
         // TODO Auto-generated method stub
         return avengers;
     }
 
+
+    // Not Used
     @Override
     public AvengerInterface getAvenger(int index) throws RemoteException {
         return null;
     }
 
+
+    // Not Used
     public boolean serialize() throws RemoteException {
         return false;
     }
 
+    // Not used
     public boolean deserialize() throws RemoteException {
         return false;
     }
 
+    // Edit Method
     public void edit(String name, String superPower, int age, String nationality) throws RemoteException {
         Iterator avenger = this.avengers.iterator();
 
@@ -71,6 +83,8 @@ public class AvengerList extends UnicastRemoteObject implements AvengerListInter
             }
         }
     }
+
+    // Add method using 4 parameters and then created an Avenger object using these
     public void add(String name, String superPower, int age, String nationality) throws RemoteException {
     AvengerInterface ai = new Avenger(name, superPower, age, nationality);
         this.avengers.add(ai);

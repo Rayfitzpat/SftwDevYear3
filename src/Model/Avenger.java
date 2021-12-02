@@ -10,6 +10,8 @@ import java.rmi.server.UnicastRemoteObject;
 import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;
 
+
+// Basic Class with constructor, Getters and Setters
 public class Avenger extends UnicastRemoteObject implements AvengerInterface, Serializable {
 
     String name;
