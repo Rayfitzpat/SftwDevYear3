@@ -10,14 +10,12 @@ import java.rmi.server.UnicastRemoteObject;
 import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;
 
-
 public class Avenger extends UnicastRemoteObject implements AvengerInterface, Serializable {
 
     String name;
     String superPower;
     int age;
     String nationality;
-
 
     public Avenger(String name, String superPower, int age, String nationality) throws RemoteException {
         this.name = name;

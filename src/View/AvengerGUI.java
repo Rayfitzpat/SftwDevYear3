@@ -26,7 +26,7 @@ AvengerController avengerController = new AvengerController();
     public JButton b6 = new JButton("Serialization");
     public JButton b7 = new JButton("Deserialization");
 
-    JTextArea t1 = new JTextArea("hgfhgfgfhgf");
+    JTextArea t1 = new JTextArea("List Of Avengers will go Here");
 
    public JTextField tf2 = new JTextField("Super Here");
    public JTextField tf1 = new JTextField("Name Here");
@@ -112,8 +112,6 @@ AvengerController avengerController = new AvengerController();
         constraints.gridy = 8;
         gridbag.setConstraints(b7, constraints);
         getContentPane().add(b7);
-
-
         setVisible(true);
     }
 
@@ -123,14 +121,12 @@ AvengerController avengerController = new AvengerController();
         if (e.getSource().equals(b6)) {
             System.out.println("Ser");
             avengerController.Serialize();
-
         }
 
         //DESER
         if (e.getSource().equals(b7)) {
             System.out.println("deser");
             avengerController.Deserialize();
-
         }
 
         // SHOW LIST
@@ -174,26 +170,19 @@ AvengerController avengerController = new AvengerController();
                 String superPower = tf2.getText();
                 int age = Integer.parseInt(tf3.getText());
                 String nationality = tf4.getText();
-
-                AvengerInterface newAvenger = new Avenger(avengerName, superPower, age, nationality);
-                ali.add(newAvenger);
+//                AvengerInterface newAvenger = new Avenger(avengerName, superPower, age, nationality);
+                ali.add(avengerName, superPower, age, nationality);
             } catch (RemoteException ex) {
                 ex.printStackTrace();
             }
         }
 
-// HIDE LIST
+        // HIDE LIST
         if (e.getSource().equals(b2)){ //Show current deserialized array
             t1.setText(null);
         }
     }
-    public void edit(String avengerName, String superPower, int age, String nationality) throws MalformedURLException, NotBoundException, RemoteException {
-
-
-        System.out.println(avengerName + ", " + superPower + ", " + age + ", " + nationality);
-
-    }
-//    public static void main(String[] args) throws RemoteException, MalformedURLException, NotBoundException {
-//        new AvengerGUI();
-//    }
+        public void edit(String avengerName, String superPower, int age, String nationality) throws MalformedURLException, NotBoundException, RemoteException {
+            System.out.println(avengerName + ", " + superPower + ", " + age + ", " + nationality);
+        }
 }

@@ -19,12 +19,10 @@ public class AvengerList extends UnicastRemoteObject implements AvengerListInter
 
     }
 
-
     public void add(Avenger a) throws RemoteException {
 
                 this.avengers.add(a);
             }
-
 
     @Override
     public void add(AvengerInterface a) throws RemoteException {
@@ -42,7 +40,6 @@ public class AvengerList extends UnicastRemoteObject implements AvengerListInter
         }
     }
 
-
     @Override
     public ArrayList<AvengerInterface> getList() throws RemoteException {
         // TODO Auto-generated method stub
@@ -54,27 +51,13 @@ public class AvengerList extends UnicastRemoteObject implements AvengerListInter
         return null;
     }
 
-
     public boolean serialize() throws RemoteException {
         return false;
     }
 
-
     public boolean deserialize() throws RemoteException {
         return false;
     }
-
-//    public void deleteAvenger(String name1) throws RemoteException {
-//        System.out.println("delete start");
-//       for(int i = 0; i < this.avengers.size(); ++i) {
-//           System.out.println("delete middle");
-//           if (Objects.equals(name1, ((AvengerInterface) this.avengers.get(i)).getName())) {
-//               System.out.println("delete inside");
-//               this.avengers.remove(i);
-//           }
-//       }
-//
-//    }
 
     public void edit(String name, String superPower, int age, String nationality) throws RemoteException {
         Iterator avenger = this.avengers.iterator();
@@ -88,14 +71,8 @@ public class AvengerList extends UnicastRemoteObject implements AvengerListInter
             }
         }
     }
-
-
-//    public void editAvenger(String name) throws RemoteException {
-//
-//        for (AvengerInterface avenger : this.avengers) {
-//            if (Objects.equals(name, ((AvengerInterface) avenger).getName())) {
-//                ((AvengerInterface) avenger).setName(name);
-//            }
-//        }
-//    }
+    public void add(String name, String superPower, int age, String nationality) throws RemoteException {
+    AvengerInterface ai = new Avenger(name, superPower, age, nationality);
+        this.avengers.add(ai);
+    }
 }

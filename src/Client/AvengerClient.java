@@ -22,8 +22,8 @@ public class AvengerClient {
             AvengerListInterface avenger= (AvengerListInterface) Naming.lookup(url+"listOfAvengers");
             ArrayList<AvengerInterface> avengerList = avenger.getList();
             for(AvengerInterface avengerInterface : avengerList){
-                System.out.println(avengerInterface.getName());
-                System.out.println(avengerInterface.getNationality());
+//                System.out.println(avengerInterface.getName());
+//                System.out.println(avengerInterface.getNationality());
             }
         }catch(Exception e){
             e.printStackTrace();
